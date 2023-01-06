@@ -1,0 +1,30 @@
+/* https://coolors.co/f4f2f1-7c7c83-0c0c0d-443d8f-416b2e-b28834-994433 */
+
+:root {
+  --white: hsl(30, 10%, 95%);
+  --grey-light: hsl(240, 3%, 75%);
+  --grey: hsl(240, 3%, 50%);
+  --grey-dark: hsl(240, 3%, 25%);
+  --black: hsl(240, 3%, 5%);
+  
+  --primary-light: hsl(245, 40%, 50%);
+  --primary: hsl(245, 40%, 40%);
+  --primary-dark: hsl(245, 40%, 30%);
+  
+  --success-light: hsl(100, 40%, 40%);
+  --success: hsl(100, 40%, 30%);
+  --success-dark: hsl(100, 40%, 20%);
+  
+  --warning-light: hsl(40, 55%, 55%);
+  --warning: hsl(40, 55%, 45%);
+  --warning-dark: hsl(40, 60%, 33%);
+  
+  --error-light: hsl(10, 50%, 50%);
+  --error: hsl(10, 50%, 40%);
+  --error-dark: hsl(10, 50%, 30%);
+}
+
+html, body {
+  background-color: var(--white);
+  color: var(--black);
+}
