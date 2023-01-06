@@ -2,7 +2,74 @@
 import BaseLayout from '../layouts/BaseLayout.astro'
 ---
 
-<BaseLayout activePage="Library">
-  <h1>The Henri Pottier Library</h1>
-	<p>This is a Astro.js declination of one of the recruitment tests used to hire frontend developers at Publicis Sapient France.</p>
+<BaseLayout activePage="About">
+	<article>
+		<h1 class="title">The Henri Potier Library</h1>
+		<figure>
+			<img src="/harry-potter.jpg" alt="Harry Potter" />
+		</figure>
+		<p class="description">This is an Astro.js implementation of one of the recruitment tests used to hire frontend developers at Publicis Sapient France.</p>
+		<footer class="links">
+			<p>
+				You can find the test requirements at:
+				<a href="https://github.com/xebia-france/recruitment-tests/blob/master/ExerciceFront.md">https://github.com/xebia-france/recruitment-tests/blob/master/ExerciceFront.md</a>
+			</p>
+			<p>
+				And to learn more about Astro please visit:
+				<a href="https://astro.build/">https://astro.build/</a>
+			</p>
+		</footer>
+	</article>
 </BaseLayout>
+
+<style>
+	article {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(4, min-content);
+		row-gap: var(--spacing-12);
+		column-gap: 0;
+		grid-template-areas:
+		  "title"
+			"figure"
+			"description"
+			"links";
+	}
+
+	.title {
+		grid-area: title;
+		text-align: center;
+	}
+
+	figure {
+		grid-area: figure;
+		text-align: center;
+	}
+
+	.description {
+		grid-area: description;
+	}
+
+	.links {
+		grid-area: links;
+	}
+
+	@media screen and (min-width: 768px) {
+		article {
+			display: grid;
+			grid-template-columns: 1fr min-content;
+			grid-template-rows: min-content 1fr 1fr;
+			row-gap: var(--spacing-16));
+			column-gap: 0;
+			grid-template-areas:
+			  "title figure"
+				"description figure"
+				"links links";
+			padding: var(--spacing-16) 0;
+		}
+
+		.title {
+			text-align: left;
+		}
+	}
+</style>

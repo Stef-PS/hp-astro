@@ -8,9 +8,9 @@ const links = [
 ---
 
 <header>
-  <h1>Henri Pottier Library</h1>
+  <h1>Henri Potier Library</h1>
   <nav>
-    {links.map((link) => link.text === activePage ? <b>{link.text}</b> : <a href={link.href}>{link.text}</a>)}
+    {links.map((link) => link.text === activePage ? <span>{link.text}</span> : <a href={link.href}>{link.text}</a>)}
   </nav>
 </header>
 
@@ -36,6 +36,10 @@ const links = [
   header > nav > a {
     color: var(--white);
     text-decoration: none;
+  }
+
+  header > nav > span {
+    color: var(--warning-light);
   }
 
   @media screen and (min-width: 768px) {

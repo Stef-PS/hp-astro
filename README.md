@@ -1,4 +1,4 @@
-# Henri Pottier Astro
+# Henri Potier Astro
 
 ## 🧞 Commands
 

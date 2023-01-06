@@ -28,6 +28,10 @@ html, body {
   height: 100%;
 }
 
+body > main {
+  width: 100%;
+}
+
 p {
   padding: var(--spacing-4) var(--spacing-4);
 }
@@ -54,4 +58,11 @@ h5 {
 
 h6 {
   padding: var(--spacing-4) var(--spacing-4);
+}
+
+@media screen and (min-width: 768px) {
+  main {
+    max-width: 100ch;
+    margin: 0 auto;
+  }
 }

@@ -15,6 +15,9 @@ const { activePage } = Astro.props
 	</head>
 	<body>
     <Header activePage={activePage} />
-		<slot />
+    <main>
+      <slot />
+    </main>
+    <footer>Copyright © 2023, Publicis Sapient</footer>
 	</body>
 </html>
