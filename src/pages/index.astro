@@ -1,16 +1,16 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro'
-import type { Book } from '../types/Book'
+import BaseLayout from '@layouts/BaseLayout.astro'
+import BookCard from '@components/BookCard.astro'
 
-const books: Book[] = await fetch('https://henri-potier.techx.fr/books').then((response) => response.json());
+import type { Book } from '../types'
+
+const books: Book[] = await fetch('https://henri-potier.techx.fr/books')
+  .then((response) => response.json())
+	.catch((error) => { throw(error) });
 ---
 
 <BaseLayout activePage="Library">
-	{books.map((book) => (
-		<div class="book">
-			<img src={book.cover} alt={book.title} width="50%" />
-			<h2>{book.title}</h2>
-			<p>{book.price}€</p>
-		</div>
-	))}
+	<section class="book-list">
+		{books.map((book) => <BookCard book={book} />)}
+	</section>
 </BaseLayout>
