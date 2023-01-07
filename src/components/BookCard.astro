@@ -1,0 +1,12 @@
+---
+import type { Book } from '../types/Book'
+
+const book: Book = Astro.props;
+---
+
+<article class="book-card">
+  <h1 class="book-title">{book.title}</h1>
+  <img class="book-cover" src={book.cover} alt={book.title} />
+  <p class="book-author">{book.author}</p>
+  <p class="book-price">{book.price} €</p>
+</article>

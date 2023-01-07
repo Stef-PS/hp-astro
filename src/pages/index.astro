@@ -1,13 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
-
-interface Book {
-	isbn: string
-	title: string
-	price: number
-	cover: string
-	synopsis: string[]
-}
+import type { Book } from '../types/Book'
 
 const books: Book[] = await fetch('https://henri-potier.techx.fr/books').then((response) => response.json());
 ---
