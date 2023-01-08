@@ -1,0 +1,127 @@
+.flip-card {
+  background-color: transparent;
+  width: 320px;
+  height: 512px;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+.flip-card__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  border-radius: var(--spacing-8);
+  transition: transform 0.4s;
+  transform-style: preserve-3d;
+}
+
+.flip-card__inner--flipped {
+  transform: rotateY(-180deg);
+}
+
+.flip-card__front, .flip-card__back {
+  position: absolute;
+  top: var(--spacing-4);
+  right: var(--spacing-4);
+  bottom: var(--spacing-4);
+  left: var(--spacing-4);
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+.flip-card__back {
+  transform: rotateY(180deg);
+}
+
+.book-card__front {
+  background-color: var(--grey-lighter);
+  color: var(--black);
+  border: 1px solid var(--grey-dark);
+  border-radius: var(--spacing-8);
+  box-shadow: var(--elevation-medium);
+  height: 100%;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: var(--spacing-64) 1fr var(--spacing-40);
+  column-gap: var(--spacing-16);
+  row-gap: 0;
+  grid-template-areas:
+    "title title"
+    "cover cover"
+    "price cta";
+  align-items: center;
+  justify-items: center;
+}
+
+.book-card__back {
+  background-color: var(--grey-dark);
+  color: var(--white);
+  border-radius: var(--spacing-8);
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: var(--spacing-64) 1fr var(--spacing-40);
+  column-gap: var(--spacing-16);
+  row-gap: 0;
+  grid-template-areas:
+    "title title"
+    "description description"
+    "price cta";
+  align-items: center;
+  justify-items: center;
+  transform: rotateY(180deg) scaleX(-1);
+}
+
+.book-cover {
+  grid-area: cover;
+  text-align: center;
+}
+
+.book-cover > img {
+  width: 250px;
+  height: 360px;
+  object-fit: cover;
+}
+
+.book-title {
+  grid-area: title;
+  text-align: center;
+}
+
+.book-price {
+  grid-area: price;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.book-cta {
+  grid-area: cta;
+  text-align: center;
+}
+
+.book-synopsis {
+  width: 95%;
+  height: 95%;
+  grid-area: description;
+  text-align: left;
+  padding: 0;
+  overflow-y: auto;
+}
+
+.book-paragraph {
+  font-size: 90%;
+  line-height: 1.3;
+}
+
+.book-list {
+  margin: var(--spacing-16) 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-8) var(--spacing-8);
+}
