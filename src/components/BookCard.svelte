@@ -1,4 +1,4 @@
-<FlipCard>
+<FlipCard on:flip={flipHandler} bind:this={flipCard}>
   <section slot="front" class="book-card__front">
     <h4 class="book-title">{book.title}</h4>
     <figure class="book-cover">
@@ -15,7 +15,14 @@
       {/each}
     </div>
     <p class="book-price">{book.price} €</p>
-    <button class="book-cta" on:click={addToCart}>Add to cart</button>
+    <button
+      class="book-cta"
+      on:click={addToCart}
+      bind:this={backCta}
+      on:blur={blurHandler}
+    >
+      Add to cart
+    </button>
   </section>
 </FlipCard>
 
@@ -24,9 +31,19 @@
   import type { Book } from '../types'
 
   export let book: Book
+  let backCta: HTMLButtonElement
+  let flipCard: FlipCard
 
   const addToCart = (e: MouseEvent) => {
     e.stopPropagation()
     console.log('add to cart:', book.isbn)
+  }
+
+  const flipHandler = () => {
+    backCta.focus({ preventScroll: true})
+  }
+
+  const blurHandler = () => {
+    flipCard.reset()
   }
 </script>

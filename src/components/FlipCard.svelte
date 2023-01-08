@@ -1,8 +1,16 @@
 <script lang="ts">
+  import { createEventDispatcher } from 'svelte'
+  
+  const dispatch = createEventDispatcher()
   let innerCard: HTMLElement
 
   const flipCard = () => {
     innerCard.classList.toggle('flip-card__inner--flipped')
+    dispatch('flip')
+  }
+
+  export function reset() {
+    innerCard.classList.remove('flip-card__inner--flipped')
   }
 </script>
 

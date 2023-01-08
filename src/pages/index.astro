@@ -11,6 +11,6 @@ const books: Book[] = await fetch('https://henri-potier.techx.fr/books')
 
 <BaseLayout activePage="Library">
 	<section class="book-list">
-		{books.map((book) => <BookCard client:load book={book} />)}
+		{books.map((book) => <BookCard client:load book={book}/>)}
 	</section>
 </BaseLayout>
