@@ -21,6 +21,7 @@ body > footer {
   padding: var(--spacing-4);
   font-size: 80%;
   font-style: italic;
+  box-shadow: var(--elevation-medium);
 }
 
 button {

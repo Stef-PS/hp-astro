@@ -4,8 +4,16 @@ import BookCard from '@components/BookCard.svelte'
 
 import type { Book } from '../types'
 
+const searchString: string = Astro.url.searchParams.get('q') ?? ''
+
 const books: Book[] = await fetch('https://henri-potier.techx.fr/books')
   .then((response) => response.json())
+	.then((books) => {
+		if (searchString) {
+			return books.filter((book: Book) => book.title.toLowerCase().includes(searchString.toLowerCase()))
+		}
+		return books
+	})
 	.catch((error) => { throw(error) });
 ---
 
