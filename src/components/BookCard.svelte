@@ -32,6 +32,7 @@
 
 <script lang="ts">
   import FlipCard from './FlipCard.svelte'
+  import cart from '../utils/cartStore'
   import type { Book, CartItem } from '../types'
 
   export let book: Book
@@ -41,8 +42,7 @@
   const addToCart = (e: MouseEvent) => {
     e.stopPropagation()
     console.log('add to cart:', book.isbn)
-    const { synopsis, ...bookWithoutSynopsis } = book;
-    
+    cart.add(book)
   }
 
   const flipHandler = () => {

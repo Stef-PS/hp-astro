@@ -1,8 +1,9 @@
 import type { Book, CartItem } from "../types"
 
-export class Cart {
+class CartStore {
   get (): CartItem[] {
-    return JSON.parse(localStorage.getItem('cart') || '[]')
+    const cart = JSON.parse(localStorage.getItem('cart') ?? '[]')
+    return cart
   }
 
   store (cart: CartItem[]) {
@@ -36,3 +37,5 @@ export class Cart {
     this.store(cart)
   }
 }
+
+export default new CartStore()

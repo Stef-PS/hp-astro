@@ -3,6 +3,7 @@
 @import url("./spacings.css");
 @import url("./elevations.css");
 @import url("./cards.css");
+@import url("./cart.css");
 
 body {
   display: flex;
