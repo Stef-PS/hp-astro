@@ -36,7 +36,7 @@
 .book-card__front {
   background-color: var(--grey-lighter);
   color: var(--black);
-  border: 1px solid var(--grey-dark);
+  border: 1px solid var(--grey-light);
   border-radius: var(--spacing-8);
   box-shadow: var(--elevation-medium);
   height: 100%;

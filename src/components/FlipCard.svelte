@@ -24,3 +24,5 @@
     </div>
   </div>
 </article>
+
+<!-- TODO: Prevent to reset when reclicking on itself (flip twice) !!! -->

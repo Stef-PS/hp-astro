@@ -1,4 +1,8 @@
 ---
+import SearchBar from '@components/SearchBar.astro'
+
+const searchString: string = Astro.url.searchParams.get('q') ?? ''
+
 const { activePage } = Astro.props
 const links = [
   { href: '/', text: 'Library' },
@@ -12,6 +16,7 @@ const links = [
   <nav>
     {links.map((link) => link.text === activePage ? <span>{link.text}</span> : <a href={link.href}>{link.text}</a>)}
   </nav>
+  <SearchBar searchString={searchString} />
 </header>
 
 <style>
@@ -30,7 +35,7 @@ const links = [
     flex-direction: row;
     justify-content: center;
     gap: var(--spacing-16);
-    padding-bottom: var(--spacing-12);
+    padding-bottom: var(--spacing-4);
     width: 100%;
   }
 
