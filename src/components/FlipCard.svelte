@@ -2,15 +2,24 @@
   import { createEventDispatcher } from 'svelte'
   
   const dispatch = createEventDispatcher()
+  let debouncing = false
   let innerCard: HTMLElement
 
-  const flipCard = () => {
-    innerCard.classList.toggle('flip-card__inner--flipped')
-    dispatch('flip')
+  function debounce() {
+    debouncing = true
+    setTimeout(() => debouncing = false, 100)
   }
 
   export function reset() {
+    debounce() // initiating a debounce here to avoid the card to be reflipped by its own flip signal
     innerCard.classList.remove('flip-card__inner--flipped')
+  }
+
+  const flipCard = () => {
+    if (!debouncing) {
+      innerCard.classList.toggle('flip-card__inner--flipped')
+      dispatch('flip')
+    }
   }
 </script>
 
@@ -24,5 +33,3 @@
     </div>
   </div>
 </article>
-
-<!-- TODO: Prevent to reset when reclicking on itself (flip twice) !!! -->
