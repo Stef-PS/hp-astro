@@ -9,7 +9,7 @@ export class CartList extends HTMLElement {
   constructor() {
     super();
     this._cart = cartStore.get()
-    this._itemsCount = this._cart.length
+    this._itemsCount = this._cart.reduce((acc: number, item: CartItem) => acc + item.quantity, 0)
   }
 
   render() {
