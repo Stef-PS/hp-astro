@@ -1,0 +1,22 @@
+{
+  "restoreTerminals.terminals": [
+    {
+      "splitTerminals": [
+        {
+          "name": "Astro Server",
+          "commands": ["yarn dev"],
+          "shouldRunCommands": false
+        }
+      ]
+    },
+    {
+      "splitTerminals": [
+        {
+          "name": "Git terminal",
+          "commands": ["clear"],
+          "shouldRunCommands": true
+        }
+      ]
+    }
+  ]
+}
