@@ -10,9 +10,13 @@
   <section slot="back" class="book-card__back">
     <h4 class="book-title">{book.title}</h4>
     <div class="book-synopsis">
-      {#each book.synopsis as paragraph}
-        <p class="book-paragraph">{paragraph}</p>
-      {/each}
+      {#if book?.synopsis?.length}
+        {#each book.synopsis as paragraph}
+          <p class="book-paragraph">{paragraph}</p>
+        {/each}
+      {:else}
+        <p class="book-paragraph"><em>No synopsis available</em></p>
+      {/if}
     </div>
     <p class="book-price">{book.price} €</p>
     <button
@@ -28,7 +32,7 @@
 
 <script lang="ts">
   import FlipCard from './FlipCard.svelte'
-  import type { Book } from '../types'
+  import type { Book, CartItem } from '../types'
 
   export let book: Book
   let backCta: HTMLButtonElement
@@ -37,6 +41,8 @@
   const addToCart = (e: MouseEvent) => {
     e.stopPropagation()
     console.log('add to cart:', book.isbn)
+    const { synopsis, ...bookWithoutSynopsis } = book;
+    
   }
 
   const flipHandler = () => {
